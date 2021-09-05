@@ -1,0 +1,11 @@
+:LoopStart
+takeown /F "c:\temp\Application Data"
+Attrib -S -H "c:\temp\Application Data"
+REN "C:\temp\Application Data" "5"
+takeown /F "c:\temp\5\Application Data"
+Attrib -S -H "c:\temp\5\Application Data"
+MOVE "c:\temp\5\Application Data" "C:\temp"
+Del /F /S /Q c:\temp\5\*.*
+RMDIR /S /Q "C:\temp\5"
+GOTO LoopStart
+:LoopEnd
